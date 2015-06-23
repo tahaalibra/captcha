@@ -17,20 +17,18 @@ class captcha
         for($i=0;$i<10;$i++) {
             imageline($im,0,rand(0,30),100,rand(0,30),$line_color);
         }
-//
-//        $pixel_color = imagecolorallocate($im, 0,0,255);
-//        for($i=0;$i<1000;$i++) {
-//            imagesetpixel($im,rand()%200,rand()%50,$pixel_color);
-//        }
+
+        $pixel_color = imagecolorallocate($im, 0,0,255);
+        for($i=0;$i<1000;$i++) {
+            imagesetpixel($im,rand()%200,rand()%50,$pixel_color);
+        }
 
         $text = $this->generateRandomString();
         $_SESSION['captcha'] = $text;
 
-        imagestring($im,100,5,5,$text,$black);
-
-//        $font                = 'arial.ttf';
-//        imagettftext($im, 20, 0, 11, 21, $grey, $font, $text);
-//        imagettftext($im, 20, 0, 9, 19, $black, $font, $text);
+        $font                = 'arial.ttf';
+        imagettftext($im, 20, 0, 11, 21, $grey, $font, $text);
+        imagettftext($im, 20, 0, 9, 19, $black, $font, $text);
         imagepng($im);
         imagedestroy($im);
     }
