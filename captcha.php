@@ -26,7 +26,7 @@ class captcha
         $text = $this->generateRandomString();
         $_SESSION['captcha'] = $text;
 
-        $font                = 'arial.ttf';
+        $font                = './arial.ttf';
         imagettftext($im, 20, 0, 11, 21, $grey, $font, $text);
         imagettftext($im, 20, 0, 9, 19, $black, $font, $text);
         imagepng($im);
